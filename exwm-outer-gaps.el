@@ -87,9 +87,9 @@ exwm-outer-gaps-increment-step"
   (if exwm-outer-gaps-mode
       ((lambda ()
 	 (add-hook 'exwm-workspace--update-workareas-hook #'exwm-outer-gaps-compute-gaps)
-	 (exwm-outer-gaps-balance 15)))
+	 (exwm-outer-gaps-apply)))
     ((lambda ()
        (remove-hook 'exwm-workspace--update-workareas-hook #'exwm-outer-gaps-compute-gaps)
-       (exwm-outer-gaps-balance 0)))))
+       (exwm-outer-gaps-apply)))))
 
 (provide 'exwm-outer-gaps)
