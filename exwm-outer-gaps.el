@@ -85,9 +85,7 @@ exwm-outer-gaps-increment-step"
   "Add useless outer gaps to exwm."
   :global t
   (if exwm-outer-gaps-mode
-      (add-hook 'exwm-workspace--update-workareas-hook
-                (lambda () (exwm-outer-gaps-compute-gaps) (exwm-outer-gaps-balance)))
-    (remove-hook 'exwm-workspace--update-workareas-hook
-		 (lambda () (exwm-outer-gaps-compute-gaps) (exwm-outer-gaps-balance)))))
+      ((lambda () (add-hook 'exwm-workspace--update-workareas-hook #'exwm-outer-gaps-compute-gaps) (exwm-outer-gaps-balance)))
+    (remove-hook 'exwm-workspace--update-workareas-hook #'exwm-outer-gaps-compute-gaps)))
 
 (provide 'exwm-outer-gaps)
